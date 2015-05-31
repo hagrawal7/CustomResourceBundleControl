@@ -6,6 +6,13 @@ import java.util.ResourceBundle.Control;
 import java.util.*;
 
 public class UTF8Control extends Control {
+	
+	private String encodingScheme = "UTF-8";
+	
+	public UTF8Control(String encodingSchemeStr) {
+		encodingScheme = encodingSchemeStr;
+	}
+	
     public ResourceBundle newBundle (String baseName, Locale locale, String format, ClassLoader loader, boolean reload)
             throws IllegalAccessException, InstantiationException, IOException {
         String bundleName = toBundleName(baseName, locale);
@@ -26,8 +33,8 @@ public class UTF8Control extends Control {
         }
         if (stream != null) {
             try {
-                // Read properties files as UTF-8.
-                bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+                // Read properties files as user defined and if not provided then use "UTF-8" encoding.
+                bundle = new PropertyResourceBundle(new InputStreamReader(stream, encodingScheme));
             } finally {
                 stream.close();
             }
