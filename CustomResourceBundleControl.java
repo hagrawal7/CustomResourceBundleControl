@@ -5,11 +5,11 @@ import java.net.URLConnection;
 import java.util.ResourceBundle.Control;
 import java.util.*;
 
-public class UTF8Control extends Control {
+public class CustomResourceBundleControl extends Control {
 	
 	private String encodingScheme = "UTF-8";
 	
-	public UTF8Control(String encodingSchemeStr) {
+	public CustomResourceBundleControl(String encodingSchemeStr) {
 		encodingScheme = encodingSchemeStr;
 	}
 	
